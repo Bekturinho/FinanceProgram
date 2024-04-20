@@ -6,3 +6,15 @@
 //
 
 import Foundation
+
+protocol DelegateForAny{
+    func showAlertForIncomeView()
+    func showAlertForExpView()
+    func changeData()
+    func getBalance()
+   
+}
+
+protocol ConfigureResultViewController{
+    func calculateValue()
+}

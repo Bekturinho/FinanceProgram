@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Identifier{
+extension ResultViewController{
     static var id: String{
         String(describing: self)
     }

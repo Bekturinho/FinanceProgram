@@ -8,6 +8,9 @@
 import UIKit
 
 class BalanceView: UIView{
+    
+    var delegate: DelegateForAny?
+    
     private lazy var availableBalanceLabel: UILabel = {
         let label = UILabel()
         label.text = "Avalaible balance"
@@ -41,10 +44,18 @@ class BalanceView: UIView{
      backgroundColor = .systemBlue
     }
     
+    
+    func getData(income: String){
+        mainBalanceLabel.text = income
+    
+    }
+  
+    
+    
     private func setUpSubViews(){
         addAllSubs()
         putContraints()
-    }
+            }
     
     private func addAllSubs(){
         addSubview(availableBalanceLabel)

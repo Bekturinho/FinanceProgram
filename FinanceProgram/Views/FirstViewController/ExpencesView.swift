@@ -8,6 +8,10 @@
 import UIKit
 
 class ExpencesView: UIView{
+    
+    var delegate: DelegateForAny?
+    
+    
     private lazy var budgetLabel: UILabel = {
         let label = UILabel()
         label.text = "Avalaible balance for this month"
@@ -44,6 +48,10 @@ class ExpencesView: UIView{
     private func setUpSubViews(){
         addAllSubs()
         putContraints()
+    }
+    func getData(data: String){
+        mainBalanceLabel.text = data
+        print(mainBalanceLabel.text)
     }
     
     private func addAllSubs(){

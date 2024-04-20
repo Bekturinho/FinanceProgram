@@ -7,20 +7,21 @@
 
 import UIKit
 
-class ResultCollectionView: UIView{
+class ResultCollectionViewCell: UICollectionViewCell{
+    
+    
     
     private lazy var imageView: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(systemName: "square.and.arrow.up.circle.fill")
-        image.widthAnchor.constraint(equalToConstant: 40).isActive = true
-        image.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        image.tintColor = .white
         return image
     }()
     
     private lazy var nameLAbel: UILabel = {
         let label = UILabel()
-        label.text = "Zakyat"
-        label.font = UIFont.systemFont(ofSize: 25, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: 20, weight: .medium)
+        label.textColor = .white
         return label
     }()
     
@@ -28,6 +29,7 @@ class ResultCollectionView: UIView{
         let label = UILabel()
         label.text = "$2,000"
         label.font = UIFont.systemFont(ofSize: 18, weight: .medium)
+        label.textColor = .white
         return label
     }()
     
@@ -35,6 +37,7 @@ class ResultCollectionView: UIView{
         let label = UILabel()
         label.text = "27 of October"
         label.font = UIFont.systemFont(ofSize: 15, weight: .thin)
+        label.textColor = .white
         return label
     }()
     
@@ -42,6 +45,7 @@ class ResultCollectionView: UIView{
         let label = UILabel()
         label.text = "In Cash"
         label.font = UIFont.systemFont(ofSize: 15, weight: .thin)
+        label.textColor = .white
         return label
     }()
     
@@ -60,27 +64,38 @@ class ResultCollectionView: UIView{
         numberLAbel.translatesAutoresizingMaskIntoConstraints = false
         dateLAbel.translatesAutoresizingMaskIntoConstraints = false
         cashLAbel.translatesAutoresizingMaskIntoConstraints = false
-        
+//        
         
         NSLayoutConstraint.activate([
-            imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            imageView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 3),
+            imageView.heightAnchor.constraint(equalToConstant: 75),
+            imageView.widthAnchor.constraint(equalToConstant: 75),
             
-            nameLAbel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
-            nameLAbel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: -20),
-            
-            numberLAbel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
+            nameLAbel.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+            nameLAbel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 10),
+
+            numberLAbel.topAnchor.constraint(equalTo: topAnchor, constant: 10),
             numberLAbel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             
-            dateLAbel.topAnchor.constraint(equalTo: nameLAbel.bottomAnchor, constant: 20),
-            dateLAbel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: -20),
-            
-            cashLAbel.topAnchor.constraint(equalTo: numberLAbel.bottomAnchor, constant: 20),
+            dateLAbel.topAnchor.constraint(equalTo: nameLAbel.bottomAnchor, constant: 10),
+            dateLAbel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 10),
+
+            cashLAbel.topAnchor.constraint(equalTo: numberLAbel.bottomAnchor, constant: 10),
             cashLAbel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             
         
         ])
     }
+    
+    func configureInvestInfo(image: String, type: String, num: String){
+        imageView.image = UIImage(systemName: image)
+        nameLAbel.text = type
+        numberLAbel.text = num
+    }
+   
+    
+  
     
     
 }
